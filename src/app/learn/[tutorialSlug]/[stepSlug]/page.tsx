@@ -159,7 +159,10 @@ export default function TutorialStepPage({ params }: PageProps) {
         {/* Expandable troubleshooting — "It's not working?" */}
         {step.troubleshooting && step.troubleshooting.length > 0 && (
           <div className="mb-8">
-            <TroubleshootAccordion items={step.troubleshooting} />
+            <TroubleshootAccordion
+              items={step.troubleshooting}
+              supportUrl={tutorial.supportUrl}
+            />
           </div>
         )}
 

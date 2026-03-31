@@ -50,6 +50,7 @@ export interface Tutorial {
   difficulty: "beginner" | "intermediate" | "advanced";
   components: string[];
   steps: TutorialStep[];
+  supportUrl?: string;
 }
 
 export const TUTORIALS: Tutorial[] = [
@@ -59,6 +60,7 @@ export const TUTORIALS: Tutorial[] = [
     tagline: "Your first working circuit — blink an LED, then read a sensor.",
     totalDuration: "30 min",
     difficulty: "beginner",
+    supportUrl: "mailto:support@arduinostarterco.com",
     components: [
       "Arduino-compatible USB-C board",
       "1× LED (any color)",

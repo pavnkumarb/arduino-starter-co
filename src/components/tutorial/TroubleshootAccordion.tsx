@@ -5,10 +5,12 @@ import type { TroubleshootingItem } from "@/lib/tutorials";
 
 interface TroubleshootAccordionProps {
   items: TroubleshootingItem[];
+  supportUrl?: string;
 }
 
 export default function TroubleshootAccordion({
   items,
+  supportUrl,
 }: TroubleshootAccordionProps) {
   const [open, setOpen] = useState(false);
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -108,6 +110,17 @@ export default function TroubleshootAccordion({
               );
             })}
           </ol>
+          {supportUrl && (
+            <p className="mt-3 text-xs text-amber-700">
+              Still stuck?{" "}
+              <a
+                href={supportUrl}
+                className="font-semibold underline hover:text-amber-900 focus:outline-none focus:ring-2 focus:ring-caution-amber rounded"
+              >
+                Contact support →
+              </a>
+            </p>
+          )}
         </div>
       )}
     </div>

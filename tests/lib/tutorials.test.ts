@@ -119,3 +119,27 @@ describe("code snippets", () => {
     }
   });
 });
+
+describe("troubleshooting", () => {
+  const tutorial = getTutorial("project-1")!;
+
+  it("every step has exactly 3 troubleshooting items", () => {
+    for (const step of tutorial.steps) {
+      expect(step.troubleshooting).toBeDefined();
+      expect(step.troubleshooting!).toHaveLength(3);
+    }
+  });
+
+  it("every troubleshooting item has a non-empty symptom and fix", () => {
+    for (const step of tutorial.steps) {
+      for (const item of step.troubleshooting!) {
+        expect(item.symptom.trim().length).toBeGreaterThan(0);
+        expect(item.fix.trim().length).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it("project-1 has a supportUrl", () => {
+    expect(tutorial.supportUrl).toBeTruthy();
+  });
+});
