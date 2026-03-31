@@ -2,30 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─────────────────────────────────────────────
+   Design System — Semantic Color Tokens
+   Source: docs/DESIGN-SYSTEM.md §1
+   ───────────────────────────────────────────── */
 @layer base {
   :root {
+    /* Font families */
     --font-heading: "Space Grotesk", sans-serif;
     --font-body: "Inter", sans-serif;
     --font-code: "JetBrains Mono", monospace;
+
+    /* Brand primitives */
+    --color-circuit-blue: #0D7ECD;
+    --color-builder-orange: #FF6B2B;
+    --color-spark-green: #00C896;
+
+    /* Neutral scale */
+    --color-neutral-50: #F5F7FA;
+    --color-neutral-100: #EDF2F7;
+    --color-neutral-200: #E2E8F0;
+    --color-neutral-400: #A0AEC0;
+    --color-neutral-500: #718096;
+    --color-neutral-700: #4A5568;
+    --color-neutral-800: #2D3748;
+    --color-neutral-900: #1A202C;
+
+    /* Semantic aliases — light mode */
+    --color-primary: var(--color-circuit-blue);
+    --color-secondary: var(--color-builder-orange);
+    --color-accent: var(--color-spark-green);
+    --color-text-primary: var(--color-neutral-800);
+    --color-text-secondary: var(--color-neutral-500);
+    --color-text-heading: var(--color-neutral-900);
+    --color-text-inverse: var(--color-neutral-50);
+    --color-text-link: var(--color-circuit-blue);
+    --color-bg-page: var(--color-neutral-50);
+    --color-bg-card: #ffffff;
+    --color-bg-code: var(--color-neutral-900);
+    --color-border: var(--color-neutral-200);
+    --color-border-focus: var(--color-circuit-blue);
+    --color-interactive-primary: var(--color-circuit-blue);
+    --color-interactive-hover: #0A6DB0;
+
+    /* Feedback backgrounds */
+    --color-feedback-success-bg: #E6FFF8;
+    --color-feedback-error-bg: #FFF5F5;
+    --color-feedback-warning-bg: #FFFFF0;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  /* Dark mode — from docs/DESIGN-SYSTEM.md §9 */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg-page: var(--color-neutral-900);
+      --color-bg-card: var(--color-neutral-800);
+      --color-text-primary: var(--color-neutral-100);
+      --color-text-secondary: var(--color-neutral-400);
+      --color-text-heading: var(--color-neutral-50);
+      --color-border: var(--color-neutral-700);
+      /* Primary / Secondary / Accent unchanged */
+    }
+  }
+
+  /* Typography base */
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    color: var(--color-text-heading);
   }
 
   body {
     font-family: var(--font-body);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-page);
   }
 
-  code,
-  pre,
-  kbd,
-  samp {
+  code, pre, kbd, samp {
     font-family: var(--font-code);
+  }
+
+  a {
+    color: var(--color-text-link);
+  }
+
+  /* Reduced motion — from docs/DESIGN-SYSTEM.md §8 */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ─────────────────────────────────────────────
+   Component Utility Classes
+   Mirrors specs in docs/DESIGN-SYSTEM.md §6
+   ───────────────────────────────────────────── */
+@layer components {
+  /* Progress bar track */
+  .progress-track {
+    @apply h-2 rounded-pill bg-mist overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full rounded-pill bg-circuit-blue transition-all duration-lg ease-brand;
   }
 }
