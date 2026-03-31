@@ -148,7 +148,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#waitlist"
-              className="inline-flex items-center justify-center gap-2 font-body font-semibold text-label bg-builder-orange text-white px-6 py-3 rounded-md min-h-[44px] hover:bg-[#E55A1F] active:bg-[#C44D18] transition-colors duration-sm ease-brand focus-visible:outline-none focus-visible:shadow-focus"
+              className="inline-flex items-center justify-center gap-2 font-body font-semibold text-label bg-builder-orange-aa text-white px-6 py-3 rounded-md min-h-[44px] hover:bg-[#B04516] active:bg-[#993C13] transition-colors duration-sm ease-brand focus-visible:outline-none focus-visible:shadow-focus"
             >
               Join the Waitlist
             </a>

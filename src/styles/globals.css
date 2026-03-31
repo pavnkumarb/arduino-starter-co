@@ -16,6 +16,8 @@
     /* Brand primitives */
     --color-circuit-blue: #0D7ECD;
     --color-builder-orange: #FF6B2B;
+    /* Accessible orange for white-text UI (4.75:1 contrast, WCAG AA ≥ 4.5:1) */
+    --color-builder-orange-aa: #C44D18;
     --color-spark-green: #00C896;
 
     /* Neutral scale */

@@ -22,7 +22,7 @@ export default function Badge({
     category:
       "bg-neutral-100 text-neutral-700",
     alert:
-      "bg-builder-orange text-white",
+      "bg-builder-orange-aa text-white",
   };
 
   return (

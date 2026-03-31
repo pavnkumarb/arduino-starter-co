@@ -13,6 +13,8 @@ const config: Config = {
         // Brand primitives — from docs/DESIGN-SYSTEM.md §1
         "circuit-blue": "#0D7ECD",
         "builder-orange": "#FF6B2B",
+        // Accessible variant: 4.75:1 contrast with white (WCAG AA ≥ 4.5:1)
+        "builder-orange-aa": "#C44D18",
         "spark-green": "#00C896",
         // Neutral scale
         cloud: "#F5F7FA",      // neutral-50
