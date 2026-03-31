@@ -142,6 +142,86 @@ Copy `.env.example` to `.env.local` before running locally.
 
 ---
 
+## API Boundaries
+
+### External APIs (outbound)
+
+| Boundary | Protocol | Caller | Auth | Direction |
+|----------|----------|--------|------|-----------|
+| Shopify Storefront API | GraphQL / HTTPS | `src/lib/shopify.ts` (server component / Route Handler) | `X-Shopify-Storefront-Access-Token` header (public token) | Server → Shopify |
+| Shopify Admin API | REST / HTTPS | Server-side Route Handler only | `SHOPIFY_ADMIN_TOKEN` env var (never client-exposed) | Server → Shopify |
+
+### Internal Route Handlers (inbound)
+
+| Route | Method | Purpose | Status |
+|-------|--------|---------|--------|
+| `/api/waitlist` | POST | Capture waitlist email signups | Placeholder |
+| `/api/feedback` | POST | Tutorial step thumbs-up/down rating | Planned ([ARD-38](/ARD/issues/ARD-38)) |
+
+### Boundary Rules
+
+1. **No secrets on the client.** `SHOPIFY_ADMIN_TOKEN` is server-only. The public `NEXT_PUBLIC_SHOPIFY_TOKEN` is the only Shopify credential that may reach the browser.
+2. **No direct browser→Shopify calls.** All Shopify API calls are proxied through Next.js server components or Route Handlers. This prevents CORS issues and keeps query logic centralised.
+3. **Static data has no API boundary.** Tutorial content (`src/lib/tutorials.ts`) is bundled at build time — no runtime HTTP call is made.
+4. **Cart state lives in Shopify.** The Next.js app does not maintain cart state in a database or server session; Shopify's `cartCreate` mutation returns a `checkoutUrl` that the browser follows directly.
+
+---
+
+## Deployment Model
+
+```
+Developer → GitHub PR
+                │
+                ▼
+         Vercel (Preview)
+         preview.vercel.app/…
+                │  (merge to main)
+                ▼
+         Vercel (Production)
+         arduinostarterco.com
+```
+
+### Hosting: Vercel
+
+| Concern | Implementation |
+|---------|---------------|
+| Hosting platform | Vercel (zero-config Next.js) |
+| CDN / edge | Vercel Edge Network (global) |
+| Build trigger | Git push / PR merge via GitHub integration |
+| Preview deployments | Automatic per-PR preview URL |
+| Production branch | `main` |
+| Region | Auto (closest to users); override to `iad1` if latency tuning needed |
+
+### Build & Runtime
+
+- **Build command:** `next build` — emits static HTML for marketing/tutorial pages, RSC payloads, and edge/serverless functions for Route Handlers.
+- **Output mode:** Default (`standalone` can be enabled for Docker if Vercel is replaced).
+- **Static pages:** `/` (homepage), `/learn/[tutorialSlug]/[stepSlug]` — statically generated at build time via `generateStaticParams`.
+- **Dynamic (per-request):** `/shop/…` Route Handlers that call Shopify for live price/availability.
+
+### Environment Variables
+
+Set in Vercel project dashboard (not committed to the repo):
+
+| Variable | Environment | Required |
+|----------|------------|---------|
+| `NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN` | Production + Preview | Planned |
+| `NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN` | Production + Preview | Planned |
+| `SHOPIFY_ADMIN_API_KEY` | Production only | Planned |
+
+Local development: copy `.env.example` → `.env.local`.
+
+### CI / QA Gates (recommended before production)
+
+1. `next build` must succeed.
+2. `npm test` (Jest) must pass.
+3. Lighthouse score ≥ 90 on Performance and Accessibility (run via Vercel's integration or CI).
+4. No `console.error` in server logs on initial page load.
+
+> **Status:** Vercel project not yet provisioned. Deployment is blocked pending production readiness ([ARD-17](/ARD/issues/ARD-17)).
+
+---
+
 ## Testing Strategy
 
 - **Unit tests:** Pure functions in `src/lib/` (e.g., `getTutorialStep`, `getAdjacentSteps`)
