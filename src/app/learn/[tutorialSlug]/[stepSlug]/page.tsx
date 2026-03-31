@@ -6,6 +6,7 @@ import WiringDiagram from "@/components/tutorial/WiringDiagram";
 import VideoClip from "@/components/tutorial/VideoClip";
 import CodeBlock from "@/components/tutorial/CodeBlock";
 import TroubleshootAccordion from "@/components/tutorial/TroubleshootAccordion";
+import FeedbackWidget from "@/components/tutorial/FeedbackWidget";
 
 interface PageProps {
   params: {
@@ -165,6 +166,13 @@ export default function TutorialStepPage({ params }: PageProps) {
             />
           </div>
         )}
+
+        {/* Feedback widget */}
+        <div className="mb-8">
+          <FeedbackWidget
+            stepPath={`/learn/${params.tutorialSlug}/${params.stepSlug}`}
+          />
+        </div>
 
         {/* Navigation */}
         <nav
