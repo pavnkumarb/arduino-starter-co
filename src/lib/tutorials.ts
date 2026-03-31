@@ -1,3 +1,8 @@
+export interface TroubleshootingItem {
+  symptom: string;
+  fix: string;
+}
+
 export interface TutorialStep {
   slug: string;
   title: string;
@@ -8,6 +13,7 @@ export interface TutorialStep {
   codeSnippet?: CodeSnippet;
   tips?: string[];
   checkpoints?: string[];
+  troubleshooting?: TroubleshootingItem[];
 }
 
 export interface WiringDiagram {
@@ -79,6 +85,20 @@ export const TUTORIALS: Tutorial[] = [
           "I can see the LED and resistor",
           "I have the breadboard and jumper wires",
         ],
+        troubleshooting: [
+          {
+            symptom: "I can't find a part — something seems missing",
+            fix: "Check the packing list card inside your kit. Small parts like resistors are often in a tiny clear bag tucked under the foam layer.",
+          },
+          {
+            symptom: "Both LED legs look the same length",
+            fix: "Hold the LED up to a light — one leg casts a wider shadow at the base of the bulb. The wider base = anode (+). If you still can't tell, it's fine to guess and flip it later.",
+          },
+          {
+            symptom: "I don't have enough jumper wires",
+            fix: "Your kit includes at least 10 wires in multiple colors. Count them — they may be bundled together. For this project you only need 3.",
+          },
+        ],
       },
       {
         slug: "2-wire-the-led",
@@ -127,6 +147,20 @@ export const TUTORIALS: Tutorial[] = [
           "Resistor connects to pin 13 via yellow wire",
           "LED short leg connects to GND via black wire",
         ],
+        troubleshooting: [
+          {
+            symptom: "Wires keep falling out of the breadboard",
+            fix: "Push the wire straight down — angled insertions don't make contact. The tip should click into the hole. If a hole feels loose, try the one next to it.",
+          },
+          {
+            symptom: "I can't tell which row the resistor is in",
+            fix: "Breadboard rows run left-right (horizontal). Count 5 holes from the top of the breadboard to find row 1. Each row is labeled A–J on the side — use those as your guide.",
+          },
+          {
+            symptom: "LED legs are too short to span the breadboard gap",
+            fix: "That's normal — the LED's legs go into the same side of the breadboard, not across the center gap. Keep both legs on the same half (e.g., the left section).",
+          },
+        ],
       },
       {
         slug: "3-upload-blink",
@@ -167,6 +201,20 @@ void loop() {
           'Code uploaded — "Done uploading" shown',
           "LED is blinking once per second",
         ],
+        troubleshooting: [
+          {
+            symptom: "No port shows up in Tools → Port",
+            fix: "Install the CH340 USB driver — it's the chip that makes your Arduino talk to your computer. The download link is on the kit card. After installing, unplug and re-plug the USB cable.",
+          },
+          {
+            symptom: "Upload fails with 'avrdude: stk500_recv()' error",
+            fix: "Try a different USB cable or port. Many USB cables are charge-only and can't carry data. A cable that came with a phone is usually a safe bet.",
+          },
+          {
+            symptom: "Arduino IDE says 'Board not found' or upload times out",
+            fix: "Go to Tools → Board and make sure 'Arduino Uno' (or the exact board name on your kit card) is selected. Then re-check Tools → Port — the correct port usually disappears when you unplug the board.",
+          },
+        ],
       },
       {
         slug: "4-troubleshoot",
@@ -190,6 +238,20 @@ void loop() {
           "LED is blinking",
           "If not, I checked the wiring against the diagram",
           "If still not, I tried a different USB port",
+        ],
+        troubleshooting: [
+          {
+            symptom: "LED is on but not blinking — it's just solid",
+            fix: "The LED is connected and powered, but the code may not have uploaded. Re-open the Arduino IDE, paste the Blink sketch from Step 3, and upload again. Make sure you see 'Done uploading'.",
+          },
+          {
+            symptom: "CH340 driver won't install on my computer",
+            fix: "On Windows: right-click the installer and choose 'Run as Administrator'. On Mac (Ventura or later): go to System Settings → Privacy & Security and scroll down to allow the driver. Restart after installing.",
+          },
+          {
+            symptom: "Everything looks right but the LED still won't light at all",
+            fix: "The LED may be backwards — flip it around (swap which leg is in which row). If that doesn't help, try a different LED from the spare bag in your kit. LEDs can occasionally arrive with a factory defect.",
+          },
         ],
       },
       {
@@ -231,6 +293,20 @@ void loop() {
           "Potentiometer left pin to 5V (red wire)",
           "Potentiometer right pin to GND (black wire)",
           "Potentiometer middle pin to A0 (orange wire)",
+        ],
+        troubleshooting: [
+          {
+            symptom: "Potentiometer pins don't fit into the breadboard",
+            fix: "The three pins need to go into three separate columns. Gently spread them apart slightly if needed — they're sturdy enough. Make sure the pot is sitting horizontally across the breadboard.",
+          },
+          {
+            symptom: "LED stopped blinking after I added the potentiometer",
+            fix: "One of your existing wires was probably bumped. Re-check that the yellow wire still connects Pin 13 to the resistor, and the black wire still connects the LED to GND.",
+          },
+          {
+            symptom: "Not sure which pin is 'middle' on the potentiometer",
+            fix: "Hold the potentiometer with the knob facing you. The three pins point downward. The middle pin is the wiper — connect that one to A0. The two outer pins go to 5V and GND in either order.",
+          },
         ],
       },
       {
@@ -279,6 +355,20 @@ void loop() {
           "LED blink speed changes when I turn the knob",
           "Serial Monitor shows sensor readings",
         ],
+        troubleshooting: [
+          {
+            symptom: "Turning the knob does nothing — blink speed stays the same",
+            fix: "Open Serial Monitor (Tools → Serial Monitor, set baud to 9600). Turn the knob and watch the 'Sensor:' number. If it changes, the pot works — re-check your LED wiring. If the number doesn't change, the middle pin isn't in A0.",
+          },
+          {
+            symptom: "Serial Monitor shows garbled characters (????? or random symbols)",
+            fix: "The baud rate doesn't match. In the Serial Monitor window, find the dropdown in the bottom-right corner and change it to 9600 baud to match the Serial.begin(9600) in the code.",
+          },
+          {
+            symptom: "Sensor values jump around wildly even when I'm not touching the knob",
+            fix: "A wire is making intermittent contact. Gently press each wire into the breadboard to seat it fully. The orange wire from the pot's middle pin to A0 is the most likely culprit.",
+          },
+        ],
       },
       {
         slug: "7-done",
@@ -293,6 +383,20 @@ void loop() {
         checkpoints: [
           "Project 1 complete",
           "LED blinks and responds to the potentiometer",
+        ],
+        troubleshooting: [
+          {
+            symptom: "Something stopped working right before the end",
+            fix: "Go back to Step 6 and re-upload the BlinkWithSensor sketch. If the LED circuit was working in Step 3, it'll work again — just re-check any wires that may have shifted.",
+          },
+          {
+            symptom: "I want to keep building but I'm not sure what's next",
+            fix: "Scan the QR code labeled 'Project 2' on your kit card. It takes you directly to the RGB LED tutorial — you'll use the same breadboard setup and add a button.",
+          },
+          {
+            symptom: "The circuit feels fragile — wires keep coming loose",
+            fix: "That's normal for a breadboard prototype! For a more permanent build, you can use small zip ties to bundle wires together, or press each wire in firmly and fold it flat along the board.",
+          },
         ],
       },
     ],

@@ -5,6 +5,7 @@ import StepProgress from "@/components/tutorial/StepProgress";
 import WiringDiagram from "@/components/tutorial/WiringDiagram";
 import VideoClip from "@/components/tutorial/VideoClip";
 import CodeBlock from "@/components/tutorial/CodeBlock";
+import TroubleshootAccordion from "@/components/tutorial/TroubleshootAccordion";
 
 interface PageProps {
   params: {
@@ -37,25 +38,59 @@ export default function TutorialStepPage({ params }: PageProps) {
 
   const { tutorial, step, index } = result;
   const { prev, next } = getAdjacentSteps(tutorial, index);
+  const isLastStep = index === tutorial.steps.length - 1;
 
   return (
     <div>
-      {/* Progress */}
+      {/* Progress — Design System §6.8 */}
       <StepProgress
         steps={tutorial.steps}
         currentIndex={index}
         tutorialSlug={tutorial.slug}
       />
 
-      <div className="mt-8">
+      {/* Step Card — Design System §6.3 */}
+      <div
+        className="mt-8 bg-white rounded-r-xl py-5 px-6"
+        style={{ borderLeft: "4px solid #0D7ECD" }}
+      >
         {/* Step header */}
         <div className="mb-6">
           <p className="text-xs font-semibold text-slate uppercase tracking-wide mb-1">
             {tutorial.title} · {step.duration}
           </p>
-          <h1 className="font-heading text-2xl font-bold text-ink">
-            {step.title}
-          </h1>
+          <div className="flex items-start justify-between gap-4">
+            <h1 className="font-heading text-h3 font-semibold text-circuit-blue">
+              {step.title}
+            </h1>
+            {/* Step Completion Badge — Design System §6.4, shown on final step */}
+            {isLastStep && (
+              <span
+                className="shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-pill text-label border"
+                style={{
+                  background: "#E6FFF8",
+                  borderColor: "#00C896",
+                  color: "#00A077",
+                }}
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#00C896"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                Project complete!
+              </span>
+            )}
+          </div>
         </div>
 
         {/* Description */}
@@ -75,7 +110,7 @@ export default function TutorialStepPage({ params }: PageProps) {
           </div>
         )}
 
-        {/* Code snippet */}
+        {/* Code snippet — Design System §6.5 */}
         {step.codeSnippet && (
           <div className="mb-8">
             <CodeBlock snippet={step.codeSnippet} />
@@ -118,6 +153,13 @@ export default function TutorialStepPage({ params }: PageProps) {
                 </li>
               ))}
             </ul>
+          </div>
+        )}
+
+        {/* Expandable troubleshooting — "It's not working?" */}
+        {step.troubleshooting && step.troubleshooting.length > 0 && (
+          <div className="mb-8">
+            <TroubleshootAccordion items={step.troubleshooting} />
           </div>
         )}
 
