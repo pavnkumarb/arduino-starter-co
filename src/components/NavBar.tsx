@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Button from "./Button";
 
 interface NavLink {
   label: string;
@@ -73,9 +72,12 @@ export default function NavBar({ links = defaultLinks }: NavBarProps) {
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
-          <Button variant="primary" size="sm" onClick={() => {}}>
+          <a
+            href="#get-kit"
+            className="inline-flex items-center justify-center gap-2 font-body font-semibold rounded-md min-h-[44px] transition-colors duration-sm ease-brand focus-visible:outline-none focus-visible:shadow-focus bg-circuit-blue text-white hover:bg-[#0A6DB0] active:bg-[#085E99] px-4 py-2 text-label text-xs"
+          >
             Get the Kit
-          </Button>
+          </a>
         </div>
 
         {/* Mobile hamburger */}
@@ -118,9 +120,13 @@ export default function NavBar({ links = defaultLinks }: NavBarProps) {
             ))}
           </ul>
           <div className="p-4 border-t border-mist">
-            <Button variant="primary" size="md" className="w-full">
+            <a
+              href="#get-kit"
+              onClick={() => setIsOpen(false)}
+              className="inline-flex items-center justify-center gap-2 font-body font-semibold rounded-md min-h-[44px] transition-colors duration-sm ease-brand focus-visible:outline-none focus-visible:shadow-focus bg-circuit-blue text-white hover:bg-[#0A6DB0] active:bg-[#085E99] px-6 py-3 text-label w-full"
+            >
               Get the Kit
-            </Button>
+            </a>
           </div>
         </div>
       )}

@@ -280,6 +280,97 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Get the Kit / Pricing ────────────────────────────────────── */}
+      <section
+        id="get-kit"
+        className="py-16 md:py-24 px-6 bg-white"
+        aria-labelledby="get-kit-heading"
+      >
+        <div className="max-w-content mx-auto">
+          <div className="max-w-2xl mx-auto text-center mb-10">
+            <h2
+              id="get-kit-heading"
+              className="font-heading font-bold text-h1 text-midnight mb-4"
+            >
+              Get the Arduino Starter Kit
+            </h2>
+            <p className="font-body text-body-lg text-slate">
+              Everything in one box. No sourcing parts, no guesswork. Ready to
+              build on day one.
+            </p>
+          </div>
+
+          <div className="max-w-md mx-auto">
+            <Card variant="feature" className="flex flex-col gap-6">
+              {/* Price */}
+              <div className="text-center">
+                <span className="font-heading font-bold text-midnight" style={{ fontSize: "3rem", lineHeight: 1 }}>
+                  $49.99
+                </span>
+                <p className="font-body text-body-sm text-slate mt-1">
+                  Pre-order price — ships when ready
+                </p>
+              </div>
+
+              {/* What's included summary */}
+              <ul className="flex flex-col gap-2" aria-label="What's included">
+                {[
+                  "Arduino Uno R3 + all components for 5 projects",
+                  "Printed quick-start guide & component reference card",
+                  "Lifetime access to online video walkthroughs",
+                  "Email support from our engineering team",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 font-body text-body text-ink">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-spark-green shrink-0 mt-0.5"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA */}
+              <a
+                href="#waitlist"
+                className="inline-flex items-center justify-center gap-2 font-body font-semibold text-label bg-builder-orange-aa text-white px-6 py-3 rounded-md min-h-[44px] w-full hover:bg-[#B04516] active:bg-[#993C13] transition-colors duration-sm ease-brand focus-visible:outline-none focus-visible:shadow-focus"
+              >
+                Join the Waitlist — Get Early Access
+              </a>
+
+              {/* Trust signals */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center text-center">
+                <div className="flex items-center justify-center gap-2 font-body text-body-sm text-slate">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                  30-day satisfaction guarantee
+                </div>
+                <div className="flex items-center justify-center gap-2 font-body text-body-sm text-slate">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="1" y="3" width="15" height="13" rx="2" />
+                    <path d="M16 8h4l3 5v3h-7V8z" />
+                    <circle cx="5.5" cy="18.5" r="2.5" />
+                    <circle cx="18.5" cy="18.5" r="2.5" />
+                  </svg>
+                  Free shipping on pre-orders
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* ── Curriculum Preview ───────────────────────────────────────── */}
       <section
         id="projects"
