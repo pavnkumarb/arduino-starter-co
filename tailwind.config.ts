@@ -90,7 +90,7 @@ const config: Config = {
         focus: "0 0 0 3px rgba(13,126,205,0.35)",
       },
       backgroundImage: {
-        "brand-gradient": "linear-gradient(135deg, #0D7ECD 0%, #00C896 100%)",
+        "brand-gradient": "linear-gradient(135deg, #0D7ECD 0%, #007055 100%)",
       },
       transitionDuration: {
         // Motion tokens — from docs/DESIGN-SYSTEM.md §8
