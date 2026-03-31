@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: "Space Grotesk", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --font-code: "JetBrains Mono", monospace;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+
+  body {
+    font-family: var(--font-body);
+  }
+
+  code,
+  pre,
+  kbd,
+  samp {
+    font-family: var(--font-code);
+  }
+}
