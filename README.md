@@ -91,16 +91,22 @@ Full brand guidelines: [`docs/BRAND-IDENTITY.md`](docs/BRAND-IDENTITY.md)
 
 ## Documentation
 
-- [Vision & Strategy](docs/VISION.md)
-- [Product Roadmap](ROADMAP.md)
+- [Architecture Overview](docs/ARCHITECTURE.md)
+- [API Reference](docs/API-REFERENCE.md)
+- [Contributing Guide](docs/CONTRIBUTING.md)
+- [Design System](docs/DESIGN-SYSTEM.md)
 - [Brand Identity](docs/BRAND-IDENTITY.md)
+- [Tech Stack](docs/TECH-STACK.md)
+- [Product Roadmap](ROADMAP.md)
 - [Competitive Landscape](docs/COMPETITIVE-LANDSCAPE.md)
 
 ---
 
 ## Contributing
 
-This project uses the Paperclip workflow. See task board at [ARD project](/ARD/issues) for open work.
+See [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) for branch naming, commit conventions, code style, and PR workflow.
+
+Task board: [ARD project](/ARD/issues)
 
 ---
 
