@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect, useRef } from "react";
 import Button from "./Button";
 import Input from "./Input";
 
@@ -8,15 +8,49 @@ export default function WaitlistForm() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const utmRef = useRef<{ source?: string; medium?: string; campaign?: string }>({});
 
-  function handleSubmit(e: FormEvent) {
+  // Capture UTM params once on mount (client-only).
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    utmRef.current = {
+      source: params.get("utm_source") ?? undefined,
+      medium: params.get("utm_medium") ?? undefined,
+      campaign: params.get("utm_campaign") ?? undefined,
+    };
+  }, []);
+
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setError("Enter a valid email address to join the waitlist.");
       return;
     }
     setError("");
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          source: utmRef.current.source,
+          utm_medium: utmRef.current.medium,
+          utm_campaign: utmRef.current.campaign,
+        }),
+      });
+      if (!res.ok) {
+        const data = (await res.json()) as { error?: string };
+        setError(data.error ?? "Something went wrong. Please try again.");
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (submitted) {
@@ -71,6 +105,7 @@ export default function WaitlistForm() {
           autoComplete="email"
           className="w-full"
           aria-required="true"
+          disabled={loading}
         />
       </div>
       <div className="sm:pt-[28px]">
@@ -79,8 +114,9 @@ export default function WaitlistForm() {
           variant="primary"
           size="md"
           className="w-full sm:w-auto whitespace-nowrap"
+          disabled={loading}
         >
-          Join the Waitlist
+          {loading ? "Joining…" : "Join the Waitlist"}
         </Button>
       </div>
     </form>
