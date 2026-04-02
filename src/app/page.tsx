@@ -100,6 +100,16 @@ const faqs = [
       "It happens — we've all fried an LED or two. We sell individual component replacements, and common parts like LEDs and resistors are available at any electronics shop. We'll include a full parts list so you always know exactly what to reorder.",
   },
   {
+    question: "What exactly is included for $59?",
+    answer:
+      "Every component you need to complete all five guided projects: an Arduino Uno R3-compatible board, half-size solderless breadboard, 30 jumper wires, 10 assorted LEDs, 30 resistors, DHT11 temperature/humidity sensor, HC-SR04 ultrasonic sensor, SG90 micro servo motor, DC motor + driver module, piezo buzzer, USB cable, and a printed quick-start guide with component reference card. Nothing sold separately.",
+  },
+  {
+    question: "Why does this kit cost $59?",
+    answer:
+      "We've priced at $59 to cover quality components, a printed guide, and ongoing video walkthrough content — while staying well below the $90+ official Arduino kits. We don't cut corners on the board or sensors, because a dead component in your first session ends the journey. The price reflects real quality, not a brand markup.",
+  },
+  {
     question: "When does the kit ship?",
     answer:
       "We're finalising the first production run now. Join the waitlist below and you'll be the first to know when pre-orders open — early waitlist members get priority allocation.",
@@ -305,10 +315,10 @@ export default function HomePage() {
               {/* Price */}
               <div className="text-center">
                 <span className="font-heading font-bold text-midnight" style={{ fontSize: "3rem", lineHeight: 1 }}>
-                  $49.99
+                  $59
                 </span>
                 <p className="font-body text-body-sm text-slate mt-1">
-                  Pre-order price — ships when ready
+                  Launch price — ships Q4 2026
                 </p>
               </div>
 
