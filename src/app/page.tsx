@@ -3,6 +3,7 @@ import Button from "@/components/Button";
 import Card from "@/components/Card";
 import FaqAccordion from "@/components/FaqAccordion";
 import WaitlistForm from "@/components/WaitlistForm";
+import ReviewsSection from "@/components/ReviewsSection";
 
 // ─── Kit Contents ─────────────────────────────────────────────────────────────
 
@@ -240,6 +241,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Social Proof ─────────────────────────────────────────────── */}
+      <ReviewsSection />
+
       {/* ── Kit Contents ─────────────────────────────────────────────── */}
       <section
         id="kit"
@@ -444,86 +448,6 @@ export default function HomePage() {
               </li>
             ))}
           </ol>
-        </div>
-      </section>
-
-      {/* ── Social Proof ─────────────────────────────────────────────── */}
-      <section
-        id="reviews"
-        className="py-16 md:py-24 px-6 bg-brand-gradient"
-        aria-labelledby="reviews-heading"
-      >
-        <div className="max-w-content mx-auto text-center">
-          <h2
-            id="reviews-heading"
-            className="font-heading font-bold text-h1 text-white mb-4"
-          >
-            Early testers are building
-          </h2>
-          <p className="font-body text-body-lg text-white/80 mb-12 max-w-xl mx-auto">
-            We&apos;re sharing kits with our first cohort of beginner builders.
-            Reviews coming soon — join the waitlist to be part of the next
-            round.
-          </p>
-
-          {/* Placeholder testimonial cards */}
-          <ul
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left"
-            aria-label="Testimonials"
-          >
-            {[
-              {
-                quote:
-                  "I'd tried Arduino kits before but always got stuck in the first 20 minutes. This guide actually got me to a working circuit.",
-                name: "Early tester",
-                detail: "Age 17, no prior coding experience",
-              },
-              {
-                quote:
-                  "The wiring diagrams make it impossible to put things in the wrong place. Finally a kit that doesn't assume you already know everything.",
-                name: "Early tester",
-                detail: "Parent building alongside a 12-year-old",
-              },
-              {
-                quote:
-                  "Got through all five projects in a weekend. The motor controller project blew my mind — I had no idea I could build that.",
-                name: "Early tester",
-                detail: "University student, first hardware experience",
-              },
-            ].map((t, i) => (
-              <li key={i}>
-                <Card variant="standard" className="h-full flex flex-col gap-4">
-                  {/* 5 stars */}
-                  <div
-                    className="flex gap-1 text-caution-amber"
-                    aria-label="5 out of 5 stars"
-                  >
-                    {Array.from({ length: 5 }).map((_, s) => (
-                      <svg
-                        key={s}
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
-                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                      </svg>
-                    ))}
-                  </div>
-                  <blockquote className="flex-1 font-body text-body text-ink italic">
-                    &ldquo;{t.quote}&rdquo;
-                  </blockquote>
-                  <footer>
-                    <p className="font-body font-semibold text-body-sm text-midnight">
-                      {t.name}
-                    </p>
-                    <p className="font-body text-body-sm text-slate">{t.detail}</p>
-                  </footer>
-                </Card>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
