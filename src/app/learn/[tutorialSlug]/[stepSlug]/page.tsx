@@ -7,6 +7,9 @@ import VideoClip from "@/components/tutorial/VideoClip";
 import CodeBlock from "@/components/tutorial/CodeBlock";
 import TroubleshootAccordion from "@/components/tutorial/TroubleshootAccordion";
 import FeedbackWidget from "@/components/tutorial/FeedbackWidget";
+import InlineEmailCapture from "@/components/tutorial/InlineEmailCapture";
+import StickyEmailBar from "@/components/tutorial/StickyEmailBar";
+import ExitIntentCapture from "@/components/tutorial/ExitIntentCapture";
 
 interface PageProps {
   params: {
@@ -58,6 +61,7 @@ export default function TutorialStepPage({ params }: PageProps) {
   const isLastStep = index === tutorial.steps.length - 1;
 
   return (
+    <>
     <div>
       {/* Progress — Design System §6.8 */}
       <StepProgress
@@ -173,6 +177,9 @@ export default function TutorialStepPage({ params }: PageProps) {
           </div>
         )}
 
+        {/* Inline email capture — shown from step 3 onwards (index >= 2) */}
+        <InlineEmailCapture stepIndex={index} />
+
         {/* Expandable troubleshooting — "It's not working?" */}
         {step.troubleshooting && step.troubleshooting.length > 0 && (
           <div className="mb-8">
@@ -226,5 +233,12 @@ export default function TutorialStepPage({ params }: PageProps) {
         </nav>
       </div>
     </div>
+
+      {/* Mobile sticky bottom bar */}
+      <StickyEmailBar />
+
+      {/* Desktop exit-intent modal (shown once per session) */}
+      <ExitIntentCapture />
+    </>
   );
 }
