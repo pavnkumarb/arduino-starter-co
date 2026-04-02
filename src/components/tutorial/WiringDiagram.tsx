@@ -1,23 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { WiringDiagram as WiringDiagramType } from "@/lib/tutorials";
 
 interface WiringDiagramProps {
   diagram: WiringDiagramType;
 }
 
-const WIRE_COLOR_CLASSES: Record<string, string> = {
-  red: "bg-red-500",
-  black: "bg-gray-800",
-  yellow: "bg-yellow-400",
-  orange: "bg-orange-400",
-  green: "bg-green-500",
-  blue: "bg-blue-500",
-};
-
 export default function WiringDiagram({ diagram }: WiringDiagramProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxOpen(false);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [lightboxOpen]);
+
+  const captionText = diagram.connections
+    .map((c) => `${c.from} → ${c.to}${c.note ? ` (${c.note})` : ""}`)
+    .join(" | ");
 
   return (
     <div className="rounded-xl border border-mist bg-white overflow-hidden">
@@ -25,33 +29,46 @@ export default function WiringDiagram({ diagram }: WiringDiagramProps) {
         Wiring Diagram
       </div>
 
-      {/* Image area — full-width, tap-to-expand on mobile */}
-      <div className="relative w-full aspect-[4/3] bg-gray-100 border-b border-mist overflow-hidden">
-        <div
-          className="w-full h-full flex items-center justify-center text-slate text-sm"
-          role="img"
-          aria-label={diagram.altText}
-        >
-          <span className="text-center px-4">{diagram.altText}</span>
-        </div>
-
-        {/* Mobile tap-to-expand affordance */}
+      {/* Image area — full-width, tap-to-expand on all screen sizes */}
+      <figure className="m-0">
         <button
           type="button"
-          className="md:hidden absolute inset-0 w-full h-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-circuit-blue"
+          className="relative w-full aspect-[4/3] bg-gray-100 border-b border-mist overflow-hidden block cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-circuit-blue"
           aria-label="Tap to expand diagram"
           onClick={() => setLightboxOpen(true)}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={diagram.imagePlaceholder}
+            alt={diagram.altText}
+            className="w-full h-full object-contain"
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).style.display = "none";
+              const sibling = e.currentTarget.nextElementSibling as HTMLElement | null;
+              if (sibling) sibling.style.display = "flex";
+            }}
+          />
+          {/* Fallback shown when image fails to load */}
+          <div
+            className="hidden w-full h-full absolute inset-0 items-center justify-center text-slate text-sm"
+            aria-hidden="true"
+          >
+            <span className="text-center px-4">{diagram.altText}</span>
+          </div>
           <span className="absolute bottom-2 right-2 flex items-center gap-1 bg-midnight/60 text-white text-xs font-semibold px-2 py-1 rounded-pill pointer-events-none">
             <span aria-hidden="true">⊕</span> Tap to expand
           </span>
         </button>
-      </div>
 
-      {/* Lightbox modal (mobile only) */}
+        <figcaption className="px-4 py-2 text-xs text-slate border-b border-mist">
+          {captionText}
+        </figcaption>
+      </figure>
+
+      {/* Lightbox modal */}
       {lightboxOpen && (
         <div
-          className="fixed inset-0 z-50 bg-midnight/90 flex items-center justify-center md:hidden"
+          className="fixed inset-0 z-50 bg-midnight/90 flex items-center justify-center"
           role="dialog"
           aria-modal="true"
           aria-label={diagram.altText}
@@ -65,18 +82,20 @@ export default function WiringDiagram({ diagram }: WiringDiagramProps) {
           >
             ×
           </button>
-          <div
-            className="max-h-[85vh] w-full flex items-center justify-center px-4"
+          <figure
+            className="max-h-[85vh] w-full flex flex-col items-center px-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <div
-              className="w-full max-h-[85vh] bg-gray-100 flex items-center justify-center rounded-xl text-slate text-sm object-contain"
-              role="img"
-              aria-label={diagram.altText}
-            >
-              <span className="text-center px-4">{diagram.altText}</span>
-            </div>
-          </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={diagram.imagePlaceholder}
+              alt={diagram.altText}
+              className="max-h-[75vh] w-full object-contain rounded-xl"
+            />
+            <figcaption className="mt-2 text-white/70 text-xs text-center max-w-prose">
+              {captionText}
+            </figcaption>
+          </figure>
         </div>
       )}
 
@@ -97,33 +116,31 @@ export default function WiringDiagram({ diagram }: WiringDiagramProps) {
           </div>
         )}
 
-        {/* Connection table */}
+        {/* Connection summary table */}
         <div>
           <p className="text-xs font-semibold text-slate uppercase tracking-wide mb-3">
             Connections
           </p>
-          <ol className="space-y-2">
-            {diagram.connections.map((conn, i) => (
-              <li key={i} className="flex items-start gap-3 text-sm">
-                <span
-                  className={`mt-1.5 w-3 h-3 rounded-full shrink-0 ${
-                    WIRE_COLOR_CLASSES[conn.color] ?? "bg-gray-400"
-                  }`}
-                  aria-label={`${conn.color} wire`}
-                />
-                <span>
-                  <span className="font-medium text-ink">{conn.from}</span>
-                  <span className="text-slate mx-1">→</span>
-                  <span className="font-medium text-ink">{conn.to}</span>
-                  {conn.note && (
-                    <span className="block text-slate text-xs mt-0.5">
-                      {conn.note}
-                    </span>
-                  )}
-                </span>
-              </li>
-            ))}
-          </ol>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-mist">
+                  <th className="text-left py-1.5 pr-3 font-semibold text-ink">From</th>
+                  <th className="text-left py-1.5 pr-3 font-semibold text-ink">To</th>
+                  <th className="text-left py-1.5 font-semibold text-ink">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                {diagram.connections.map((conn, i) => (
+                  <tr key={i} className="border-b border-mist/50 last:border-0">
+                    <td className="py-1.5 pr-3 font-medium text-ink">{conn.from}</td>
+                    <td className="py-1.5 pr-3 font-medium text-ink">{conn.to}</td>
+                    <td className="py-1.5 text-slate">{conn.note ?? "—"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
