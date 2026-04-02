@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0D7ECD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00C896;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card-fade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1" />
+    </linearGradient>
+    <clipPath id="round-card">
+      <rect x="0" y="1240" width="1080" height="680" rx="40" />
+    </clipPath>
+  </defs>
+
+  <!-- Full gradient background -->
+  <rect width="1080" height="1920" fill="url(#bg-gradient)" />
+
+  <!-- Subtle circuit trace decoration -->
+  <g opacity="0.1" stroke="#FFFFFF" stroke-width="2" fill="none">
+    <line x1="0" y1="400" x2="100" y2="400" />
+    <line x1="100" y1="400" x2="100" y2="340" />
+    <circle cx="100" cy="340" r="6" fill="#FFFFFF" />
+    <line x1="100" y1="340" x2="220" y2="340" />
+    <circle cx="220" cy="340" r="6" fill="#FFFFFF" />
+
+    <line x1="1080" y1="900" x2="960" y2="900" />
+    <line x1="960" y1="900" x2="960" y2="960" />
+    <circle cx="960" cy="960" r="6" fill="#FFFFFF" />
+  </g>
+
+  <!-- Safe zone indicator (top) — Instagram UI area -->
+  <rect x="0" y="0" width="1080" height="200" fill="rgba(26,32,44,0.25)" />
+
+  <!-- Logo placeholder top-center -->
+  <rect x="360" y="56" width="360" height="72" rx="8" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-dasharray="12 6" />
+  <text x="540" y="98" font-family="'Space Grotesk', sans-serif" font-size="22" font-weight="600" fill="rgba(255,255,255,0.7)" text-anchor="middle">LOGO (reversed, white)</text>
+
+  <!-- Product image placeholder - full bleed center zone -->
+  <rect x="60" y="240" width="960" height="960" rx="20" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-dasharray="24 12" />
+
+  <!-- Placeholder icon - camera/product -->
+  <g transform="translate(540,660)" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-100" y="-76" width="200" height="152" rx="16" />
+    <circle cx="0" cy="0" r="44" />
+    <circle cx="0" cy="0" r="28" />
+    <rect x="-80" y="-56" width="24" height="20" rx="4" />
+  </g>
+  <text x="540" y="808" font-family="'Space Grotesk', sans-serif" font-size="32" font-weight="600" fill="rgba(255,255,255,0.55)" text-anchor="middle">KIT PRODUCT IMAGE</text>
+  <text x="540" y="856" font-family="'Inter', sans-serif" font-size="22" fill="rgba(255,255,255,0.35)" text-anchor="middle">High-res kit photo, hero or flat-lay</text>
+  <text x="540" y="892" font-family="'Inter', sans-serif" font-size="18" fill="rgba(255,255,255,0.3)" text-anchor="middle">Recommended: 960×960px, clean background</text>
+
+  <!-- Bottom white card -->
+  <rect x="0" y="1240" width="1080" height="680" rx="40" fill="url(#card-fade)" />
+
+  <!-- Card top handle indicator -->
+  <rect x="460" y="1264" width="160" height="8" rx="4" fill="#E2E8F0" />
+
+  <!-- Headline placeholder -->
+  <rect x="48" y="1308" width="984" height="88" rx="8" fill="rgba(13,126,205,0.05)" stroke="#E2E8F0" stroke-width="2" stroke-dasharray="16 8" />
+  <text x="540" y="1361" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="700" fill="#718096" text-anchor="middle">HEADLINE: "THE KIT IS HERE" (Space Grotesk 700, ~56px)</text>
+
+  <!-- Sub-headline -->
+  <rect x="48" y="1412" width="780" height="56" rx="6" fill="rgba(13,126,205,0.03)" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="12 6" />
+  <text x="438" y="1447" font-family="'Inter', sans-serif" font-size="20" fill="#A0AEC0" text-anchor="middle">Sub-headline copy (Inter 400, 28px, Ink)</text>
+
+  <!-- Feature bullets -->
+  <text x="48" y="1516" font-family="'Inter', sans-serif" font-size="18" font-weight="600" fill="#0D7ECD">WHAT'S INCLUDED:</text>
+
+  <!-- Bullet 1 -->
+  <circle cx="64" cy="1558" r="8" fill="#0D7ECD" />
+  <rect x="88" y="1540" width="600" height="40" rx="6" fill="rgba(13,126,205,0.04)" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="10 5" />
+  <text x="388" y="1566" font-family="'Inter', sans-serif" font-size="20" fill="#A0AEC0" text-anchor="middle">Feature / included item 1</text>
+
+  <!-- Bullet 2 -->
+  <circle cx="64" cy="1618" r="8" fill="#0D7ECD" />
+  <rect x="88" y="1600" width="600" height="40" rx="6" fill="rgba(13,126,205,0.04)" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="10 5" />
+  <text x="388" y="1626" font-family="'Inter', sans-serif" font-size="20" fill="#A0AEC0" text-anchor="middle">Feature / included item 2</text>
+
+  <!-- Bullet 3 -->
+  <circle cx="64" cy="1678" r="8" fill="#0D7ECD" />
+  <rect x="88" y="1660" width="600" height="40" rx="6" fill="rgba(13,126,205,0.04)" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="10 5" />
+  <text x="388" y="1686" font-family="'Inter', sans-serif" font-size="20" fill="#A0AEC0" text-anchor="middle">Feature / included item 3</text>
+
+  <!-- CTA Button (Builder Orange) -->
+  <rect x="48" y="1732" width="984" height="88" rx="8" fill="#FF6B2B" />
+  <text x="540" y="1784" font-family="'Inter', sans-serif" font-size="28" font-weight="600" fill="#FFFFFF" text-anchor="middle">GET YOURS NOW →</text>
+  <rect x="48" y="1732" width="984" height="88" rx="8" fill="none" stroke="rgba(255,107,43,0.6)" stroke-width="2" stroke-dasharray="16 8" />
+
+  <!-- Swipe up indicator -->
+  <text x="540" y="1864" font-family="'Inter', sans-serif" font-size="18" fill="#718096" text-anchor="middle">↑  SWIPE UP  ↑</text>
+  <text x="540" y="1892" font-family="'Inter', sans-serif" font-size="14" fill="#A0AEC0" text-anchor="middle">Link placeholder</text>
+
+  <!-- Template label -->
+  <rect x="0" y="1880" width="1080" height="40" fill="rgba(26,32,44,0.06)" />
+  <text x="540" y="1906" font-family="'Inter', sans-serif" font-size="16" fill="#A0AEC0" text-anchor="middle">TEMPLATE: ig-story-kit-reveal | 1080×1920 | Instagram Stories/Reels Cover — Remove before export</text>
+</svg>

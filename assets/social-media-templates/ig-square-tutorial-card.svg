@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <linearGradient id="top-bar-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0D7ECD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0A6DB0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background: Cloud -->
+  <rect width="1080" height="1080" fill="#F5F7FA" />
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="8" height="1080" fill="#0D7ECD" />
+
+  <!-- Top header bar -->
+  <rect x="0" y="0" width="1080" height="148" fill="url(#top-bar-grad)" />
+
+  <!-- Step badge (Builder Orange) -->
+  <circle cx="80" cy="74" r="44" fill="#FF6B2B" />
+  <text x="80" y="84" font-family="'Space Grotesk', sans-serif" font-size="30" font-weight="700" fill="#FFFFFF" text-anchor="middle">01</text>
+  <rect x="36" y="30" width="88" height="88" rx="44" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-dasharray="8 4" />
+  <text x="80" y="118" font-family="'Inter', sans-serif" font-size="12" fill="rgba(255,255,255,0.7)" text-anchor="middle">STEP NO.</text>
+
+  <!-- Step title placeholder -->
+  <rect x="148" y="28" width="892" height="92" rx="6" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-dasharray="12 6" />
+  <text x="594" y="72" font-family="'Space Grotesk', sans-serif" font-size="26" font-weight="700" fill="rgba(255,255,255,0.7)" text-anchor="middle">STEP TITLE — "[Verb] the [Component]"</text>
+  <text x="594" y="104" font-family="'Inter', sans-serif" font-size="18" fill="rgba(255,255,255,0.5)" text-anchor="middle">Space Grotesk 700, ~48px, white</text>
+
+  <!-- Center illustration zone -->
+  <rect x="40" y="172" width="1000" height="580" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+  <rect x="60" y="192" width="960" height="540" rx="8" fill="rgba(13,126,205,0.04)" stroke="#0D7ECD" stroke-width="2" stroke-dasharray="20 10" />
+
+  <!-- Placeholder icon - image -->
+  <g transform="translate(540,450)" fill="none" stroke="#0D7ECD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.4">
+    <rect x="-80" y="-64" width="160" height="128" rx="12" />
+    <circle cx="-28" cy="-16" r="20" />
+    <polyline points="-80,36 -32,-12 8,28 48,-16 80,36" />
+  </g>
+  <text x="540" y="558" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="600" fill="#0D7ECD" text-anchor="middle" opacity="0.5">STEP ILLUSTRATION / COMPONENT PHOTO</text>
+  <text x="540" y="596" font-family="'Inter', sans-serif" font-size="18" fill="#718096" text-anchor="middle">Wiring diagram, breadboard photo, or circuit illustration (960×540px)</text>
+
+  <!-- Bottom content area -->
+  <rect x="0" y="772" width="1080" height="308" fill="#FFFFFF" />
+  <line x1="40" y1="772" x2="1040" y2="772" stroke="#E2E8F0" stroke-width="2" />
+
+  <!-- Instruction text placeholder -->
+  <rect x="40" y="796" width="780" height="56" rx="6" fill="rgba(13,126,205,0.04)" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="12 6" />
+  <text x="430" y="829" font-family="'Inter', sans-serif" font-size="20" fill="#718096" text-anchor="middle">INSTRUCTION TEXT — Inter 400, 28px, Ink (#2D3748)</text>
+
+  <!-- Secondary instruction line -->
+  <rect x="40" y="864" width="640" height="44" rx="6" fill="rgba(13,126,205,0.03)" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="12 6" />
+  <text x="360" y="892" font-family="'Inter', sans-serif" font-size="18" fill="#A0AEC0" text-anchor="middle">Second line of instruction (optional)</text>
+
+  <!-- Progress dots -->
+  <circle cx="40" cy="964" r="14" fill="#0D7ECD" />
+  <circle cx="76" cy="964" r="14" fill="#E2E8F0" />
+  <circle cx="112" cy="964" r="14" fill="#E2E8F0" />
+  <circle cx="148" cy="964" r="14" fill="#E2E8F0" />
+  <circle cx="184" cy="964" r="14" fill="#E2E8F0" />
+  <text x="40" y="994" font-family="'Inter', sans-serif" font-size="14" fill="#718096">Step 1 of 5</text>
+
+  <!-- Component callout badge -->
+  <rect x="680" y="920" width="360" height="52" rx="26" fill="#E6FFF8" stroke="#00C896" stroke-width="2" />
+  <text x="740" y="950" font-family="'Inter', sans-serif" font-size="20" fill="#00C896">✓</text>
+  <text x="768" y="950" font-family="'Inter', sans-serif" font-size="18" font-weight="600" fill="#00A077">COMPONENT NAME</text>
+
+  <!-- Logo bottom-right -->
+  <rect x="800" y="1000" width="240" height="40" rx="4" fill="none" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="8 4" />
+  <text x="920" y="1026" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="600" fill="#A0AEC0" text-anchor="middle">LOGO PLACEHOLDER</text>
+
+  <!-- Template label -->
+  <rect x="0" y="1040" width="1080" height="40" fill="rgba(26,32,44,0.05)" />
+  <text x="540" y="1066" font-family="'Inter', sans-serif" font-size="16" fill="#A0AEC0" text-anchor="middle">TEMPLATE: ig-square-tutorial-card | 1080×1080 | Instagram/TikTok — Remove this bar before export</text>
+</svg>

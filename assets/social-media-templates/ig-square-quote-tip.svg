@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <!-- Background: White -->
+  <rect width="1080" height="1080" fill="#FFFFFF" />
+
+  <!-- Left Circuit Blue accent bar -->
+  <rect x="0" y="0" width="10" height="1080" fill="#0D7ECD" />
+
+  <!-- Top-right Circuit Blue corner accent -->
+  <polygon points="1080,0 880,0 1080,200" fill="rgba(13,126,205,0.06)" />
+
+  <!-- Bottom-left Spark Green corner accent -->
+  <polygon points="0,1080 200,1080 0,880" fill="rgba(0,200,150,0.06)" />
+
+  <!-- "TIP" badge (Spark Green pill) top-right -->
+  <rect x="880" y="48" width="148" height="48" rx="24" fill="#00C896" />
+  <text x="954" y="80" font-family="'Inter', sans-serif" font-size="22" font-weight="600" fill="#FFFFFF" text-anchor="middle">TIP</text>
+  <!-- Badge placeholder label -->
+  <text x="954" y="116" font-family="'Inter', sans-serif" font-size="14" fill="#A0AEC0" text-anchor="middle">or "QUOTE" / "#NUMBER"</text>
+
+  <!-- Large opening quotation mark -->
+  <text x="80" y="260" font-family="'Space Grotesk', sans-serif" font-size="280" font-weight="700" fill="#0D7ECD" opacity="0.12">"</text>
+
+  <!-- Quote text placeholder block -->
+  <rect x="80" y="220" width="920" height="420" rx="12" fill="rgba(13,126,205,0.03)" stroke="#E2E8F0" stroke-width="2" stroke-dasharray="16 8" />
+
+  <text x="540" y="360" font-family="'Space Grotesk', sans-serif" font-size="32" font-weight="700" fill="#2D3748" text-anchor="middle" opacity="0.4">YOUR QUOTE OR TIP TEXT</text>
+  <text x="540" y="412" font-family="'Space Grotesk', sans-serif" font-size="32" font-weight="700" fill="#2D3748" text-anchor="middle" opacity="0.4">GOES HERE</text>
+  <text x="540" y="480" font-family="'Inter', sans-serif" font-size="20" fill="#A0AEC0" text-anchor="middle">Space Grotesk 700, ~48–60px, Midnight (#1A202C)</text>
+  <text x="540" y="516" font-family="'Inter', sans-serif" font-size="18" fill="#A0AEC0" text-anchor="middle">Max 3 lines. Keep under 120 characters total.</text>
+
+  <!-- Attribution line -->
+  <line x1="80" y1="680" x2="320" y2="680" stroke="#0D7ECD" stroke-width="3" />
+  <rect x="80" y="700" width="560" height="48" rx="6" fill="rgba(13,126,205,0.04)" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="12 6" />
+  <text x="360" y="731" font-family="'Inter', sans-serif" font-size="20" fill="#718096" text-anchor="middle">— Attribution Name / Source (Inter 400, 28px, Slate)</text>
+
+  <!-- Spark Green accent divider -->
+  <line x1="80" y1="800" x2="440" y2="800" stroke="#00C896" stroke-width="3" />
+
+  <!-- Channel handle placeholder -->
+  <rect x="80" y="824" width="360" height="44" rx="6" fill="rgba(0,200,150,0.06)" stroke="#00C896" stroke-width="1.5" stroke-dasharray="8 4" />
+  <text x="260" y="852" font-family="'Inter', sans-serif" font-size="18" fill="#00A077" text-anchor="middle">@channel_handle</text>
+
+  <!-- Logo placeholder bottom-right -->
+  <rect x="720" y="880" width="320" height="60" rx="8" fill="none" stroke="#E2E8F0" stroke-width="2" stroke-dasharray="10 5" />
+  <text x="880" y="916" font-family="'Space Grotesk', sans-serif" font-size="18" font-weight="600" fill="#A0AEC0" text-anchor="middle">LOGO PLACEHOLDER</text>
+
+  <!-- Closing quotation mark (decorative) -->
+  <text x="840" y="680" font-family="'Space Grotesk', sans-serif" font-size="200" font-weight="700" fill="#0D7ECD" opacity="0.07">"</text>
+
+  <!-- Template label -->
+  <rect x="0" y="1040" width="1080" height="40" fill="rgba(26,32,44,0.04)" />
+  <text x="540" y="1066" font-family="'Inter', sans-serif" font-size="16" fill="#A0AEC0" text-anchor="middle">TEMPLATE: ig-square-quote-tip | 1080×1080 | Instagram/TikTok — Remove this bar before export</text>
+</svg>

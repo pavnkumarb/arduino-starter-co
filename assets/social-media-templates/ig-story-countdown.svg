@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <!-- Background: Midnight -->
+  <rect width="1080" height="1920" fill="#1A202C" />
+
+  <!-- Subtle circuit trace background decoration -->
+  <g opacity="0.07" stroke="#0D7ECD" stroke-width="2" fill="none">
+    <!-- Horizontal traces -->
+    <line x1="0" y1="300" x2="300" y2="300" />
+    <line x1="780" y1="300" x2="1080" y2="300" />
+    <line x1="0" y1="700" x2="200" y2="700" />
+    <line x1="880" y1="700" x2="1080" y2="700" />
+    <line x1="0" y1="1400" x2="400" y2="1400" />
+    <line x1="680" y1="1400" x2="1080" y2="1400" />
+    <!-- Vertical connectors -->
+    <line x1="300" y1="300" x2="300" y2="240" />
+    <line x1="780" y1="300" x2="780" y2="240" />
+    <line x1="200" y1="700" x2="200" y2="640" />
+    <!-- Node circles -->
+    <circle cx="300" cy="240" r="8" fill="#0D7ECD" opacity="0.5" />
+    <circle cx="780" cy="240" r="8" fill="#0D7ECD" opacity="0.5" />
+    <circle cx="200" cy="640" r="8" fill="#0D7ECD" opacity="0.5" />
+    <circle cx="880" cy="640" r="8" fill="#0D7ECD" opacity="0.5" />
+    <!-- More traces -->
+    <line x1="540" y1="0" x2="540" y2="100" />
+    <line x1="540" y1="1820" x2="540" y2="1920" />
+  </g>
+
+  <!-- Spark Green corner accent dots -->
+  <circle cx="80" cy="80" r="6" fill="#00C896" opacity="0.5" />
+  <circle cx="1000" cy="80" r="6" fill="#00C896" opacity="0.5" />
+  <circle cx="80" cy="1840" r="6" fill="#00C896" opacity="0.5" />
+  <circle cx="1000" cy="1840" r="6" fill="#00C896" opacity="0.5" />
+
+  <!-- Safe zone (top) -->
+  <rect x="0" y="0" width="1080" height="200" fill="rgba(26,32,44,0.4)" />
+
+  <!-- Logo placeholder top-center -->
+  <rect x="360" y="56" width="360" height="72" rx="8" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-dasharray="10 5" />
+  <text x="540" y="98" font-family="'Space Grotesk', sans-serif" font-size="22" font-weight="600" fill="rgba(255,255,255,0.4)" text-anchor="middle">LOGO (reversed)</text>
+
+  <!-- COUNTDOWN section -->
+  <text x="540" y="420" font-family="'Inter', sans-serif" font-size="28" font-weight="400" fill="#718096" text-anchor="middle" letter-spacing="6">LAUNCHING IN</text>
+
+  <!-- Large countdown number (Builder Orange) -->
+  <rect x="120" y="460" width="840" height="380" rx="24" fill="rgba(255,107,43,0.06)" stroke="rgba(255,107,43,0.2)" stroke-width="2" stroke-dasharray="20 10" />
+  <text x="540" y="716" font-family="'Space Grotesk', sans-serif" font-size="360" font-weight="700" fill="#FF6B2B" text-anchor="middle" opacity="0.85">XX</text>
+  <text x="540" y="796" font-family="'Inter', sans-serif" font-size="20" fill="rgba(255,107,43,0.5)" text-anchor="middle">Replace XX with actual countdown number</text>
+
+  <!-- DAYS label -->
+  <text x="540" y="920" font-family="'Space Grotesk', sans-serif" font-size="96" font-weight="600" fill="#FFFFFF" text-anchor="middle">DAYS</text>
+
+  <!-- Divider -->
+  <line x1="200" y1="980" x2="880" y2="980" stroke="#2D3748" stroke-width="2" />
+  <circle cx="540" cy="980" r="6" fill="#0D7ECD" />
+
+  <!-- "UNTIL [EVENT]" placeholder -->
+  <rect x="200" y="1004" width="680" height="64" rx="8" fill="rgba(13,126,205,0.08)" stroke="rgba(13,126,205,0.3)" stroke-width="1.5" stroke-dasharray="12 6" />
+  <text x="540" y="1044" font-family="'Inter', sans-serif" font-size="26" fill="#718096" text-anchor="middle">UNTIL [EVENT NAME]</text>
+
+  <!-- Event description box -->
+  <rect x="80" y="1100" width="920" height="280" rx="16" fill="rgba(45,55,72,0.5)" stroke="#2D3748" stroke-width="2" stroke-dasharray="16 8" />
+  <text x="540" y="1200" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="600" fill="#E2E8F0" text-anchor="middle" opacity="0.4">EVENT DESCRIPTION</text>
+  <text x="540" y="1248" font-family="'Inter', sans-serif" font-size="20" fill="#718096" text-anchor="middle">Short description of what's launching</text>
+  <text x="540" y="1284" font-family="'Inter', sans-serif" font-size="18" fill="#4A5568" text-anchor="middle">Inter 400, 24px, Mist (#E2E8F0)</text>
+  <text x="540" y="1320" font-family="'Inter', sans-serif" font-size="18" fill="#4A5568" text-anchor="middle">Max 2 lines recommended</text>
+  <text x="540" y="1356" font-family="'Inter', sans-serif" font-size="18" fill="#4A5568" text-anchor="middle">e.g. "The Arduino Starter Kit — everything to build your first circuit"</text>
+
+  <!-- Circuit Blue accent line -->
+  <rect x="0" y="1424" width="1080" height="4" fill="#0D7ECD" opacity="0.3" />
+
+  <!-- Teaser / CTA area -->
+  <text x="540" y="1500" font-family="'Space Grotesk', sans-serif" font-size="36" font-weight="600" fill="#FFFFFF" text-anchor="middle">MARK YOUR CALENDAR</text>
+
+  <!-- Date placeholder -->
+  <rect x="200" y="1528" width="680" height="60" rx="30" fill="rgba(13,126,205,0.15)" stroke="#0D7ECD" stroke-width="2" />
+  <text x="540" y="1566" font-family="'Inter', sans-serif" font-size="24" font-weight="600" fill="#0D7ECD" text-anchor="middle">DATE: [Month DD, YYYY]</text>
+
+  <!-- URL / Link placeholder -->
+  <rect x="80" y="1628" width="920" height="60" rx="8" fill="rgba(45,55,72,0.6)" stroke="#2D3748" stroke-width="1.5" stroke-dasharray="10 5" />
+  <text x="540" y="1666" font-family="'Inter', sans-serif" font-size="22" fill="#718096" text-anchor="middle">yourdomain.com/launch  — link in bio placeholder</text>
+
+  <!-- Swipe up -->
+  <text x="540" y="1764" font-family="'Inter', sans-serif" font-size="22" fill="#718096" text-anchor="middle">↑  SWIPE UP  ↑</text>
+
+  <!-- Spark Green mini bottom accent -->
+  <rect x="420" y="1800" width="240" height="4" rx="2" fill="#00C896" opacity="0.4" />
+
+  <!-- Template label -->
+  <rect x="0" y="1880" width="1080" height="40" fill="rgba(255,255,255,0.03)" />
+  <text x="540" y="1906" font-family="'Inter', sans-serif" font-size="16" fill="#4A5568" text-anchor="middle">TEMPLATE: ig-story-countdown | 1080×1920 | Instagram Stories/Reels — Remove before export</text>
+</svg>

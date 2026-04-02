@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 628" width="1200" height="628">
+  <!-- Background: Cloud -->
+  <rect width="1200" height="628" fill="#F5F7FA" />
+
+  <!-- Top Circuit Blue accent bar -->
+  <rect x="0" y="0" width="1200" height="6" fill="#0D7ECD" />
+
+  <!-- Bottom Spark Green accent bar -->
+  <rect x="0" y="622" width="1200" height="6" fill="#00C896" />
+
+  <!-- Right side: Component close-up image placeholder (60% width) -->
+  <rect x="480" y="6" width="720" height="616" fill="#FFFFFF" />
+  <rect x="520" y="40" width="640" height="548" rx="12" fill="rgba(13,126,205,0.04)" stroke="#E2E8F0" stroke-width="2" stroke-dasharray="18 9" />
+  <!-- Camera/photo icon -->
+  <g transform="translate(840,290)" fill="none" stroke="#A0AEC0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-72" y="-52" width="144" height="104" rx="12" />
+    <circle cx="0" cy="0" r="32" />
+    <circle cx="0" cy="0" r="20" />
+    <rect x="-60" y="-40" width="20" height="16" rx="4" />
+  </g>
+  <text x="840" y="376" font-family="'Space Grotesk', sans-serif" font-size="22" font-weight="600" fill="#A0AEC0" text-anchor="middle">COMPONENT CLOSE-UP</text>
+  <text x="840" y="408" font-family="'Inter', sans-serif" font-size="16" fill="#CBD5E0" text-anchor="middle">Macro product shot, 640×548px</text>
+
+  <!-- Left side: Feature content (40% width) -->
+  <!-- Logo placeholder top-left -->
+  <rect x="40" y="32" width="220" height="48" rx="6" fill="none" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="8 4" />
+  <text x="150" y="62" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="600" fill="#A0AEC0" text-anchor="middle">LOGO</text>
+
+  <!-- Feature icon circle -->
+  <circle cx="100" cy="192" r="60" fill="#EBF5FF" />
+  <circle cx="100" cy="192" r="60" fill="none" stroke="#0D7ECD" stroke-width="2" stroke-dasharray="10 5" />
+  <!-- Generic icon inside circle -->
+  <g transform="translate(100,192)" fill="none" stroke="#0D7ECD" stroke-width="3" stroke-linecap="round">
+    <rect x="-24" y="-20" width="48" height="40" rx="4" />
+    <line x1="0" y1="20" x2="0" y2="32" />
+    <line x1="-16" y1="32" x2="16" y2="32" />
+  </g>
+  <text x="100" y="282" font-family="'Inter', sans-serif" font-size="13" fill="#A0AEC0" text-anchor="middle">ICON (64px)</text>
+
+  <!-- Feature name placeholder -->
+  <rect x="40" y="316" width="400" height="68" rx="8" fill="rgba(13,126,205,0.05)" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="12 6" />
+  <text x="240" y="354" font-family="'Space Grotesk', sans-serif" font-size="22" font-weight="700" fill="#718096" text-anchor="middle">FEATURE NAME</text>
+  <text x="240" y="374" font-family="'Inter', sans-serif" font-size="14" fill="#CBD5E0" text-anchor="middle">Space Grotesk 700, ~36–40px, Midnight</text>
+
+  <!-- Feature description -->
+  <rect x="40" y="400" width="400" height="56" rx="6" fill="rgba(13,126,205,0.03)" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="10 5" />
+  <text x="240" y="430" font-family="'Inter', sans-serif" font-size="18" fill="#A0AEC0" text-anchor="middle">Feature description goes here.</text>
+  <text x="240" y="450" font-family="'Inter', sans-serif" font-size="14" fill="#CBD5E0" text-anchor="middle">Inter 400, 20px, Slate. 2 lines max.</text>
+
+  <!-- "INCLUDED IN KIT" tag (Spark Green) -->
+  <rect x="40" y="476" width="240" height="44" rx="22" fill="#E6FFF8" stroke="#00C896" stroke-width="2" />
+  <text x="80" y="504" font-family="'Inter', sans-serif" font-size="18" fill="#00C896">✓</text>
+  <text x="105" y="504" font-family="'Inter', sans-serif" font-size="16" font-weight="600" fill="#00A077">INCLUDED IN KIT</text>
+  <rect x="40" y="476" width="240" height="44" rx="22" fill="none" stroke="rgba(0,200,150,0.4)" stroke-width="1.5" stroke-dasharray="8 4" />
+
+  <!-- Vertical divider -->
+  <line x1="480" y1="6" x2="480" y2="622" stroke="#E2E8F0" stroke-width="1" />
+
+  <!-- Template label -->
+  <rect x="0" y="592" width="1200" height="36" fill="rgba(242,247,250,0.9)" />
+  <text x="600" y="614" font-family="'Inter', sans-serif" font-size="14" fill="#A0AEC0" text-anchor="middle">TEMPLATE: twitter-feature-highlight | 1200×628 | Twitter/X Banner — Remove this bar before export</text>
+</svg>
