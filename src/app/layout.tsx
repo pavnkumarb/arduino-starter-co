@@ -25,6 +25,20 @@ export const metadata: Metadata = {
   title: "Arduino Starter Co — Build Your First Circuit",
   description:
     "Beginner-friendly Arduino kits. Unbox, wire up, and build your first working project in under 30 minutes.",
+  openGraph: {
+    title: "Arduino Starter Co — Build Your First Circuit",
+    description:
+      "Beginner-friendly Arduino kits. Unbox, wire up, and build your first working project in under 30 minutes.",
+    url: "https://arduinostarterco.com",
+    siteName: "Arduino Starter Co",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Arduino Starter Co — Build Your First Circuit",
+    description:
+      "Beginner-friendly Arduino kits. Unbox, wire up, and build your first working project in under 30 minutes.",
+  },
 };
 
 export default function RootLayout({

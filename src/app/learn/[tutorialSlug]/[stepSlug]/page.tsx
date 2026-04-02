@@ -27,9 +27,25 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const result = getTutorialStep(params.tutorialSlug, params.stepSlug);
   if (!result) return {};
+  const title = `${result.step.title} — ${result.tutorial.title} — Arduino Starter Co`;
+  const description = result.step.description;
+  const url = `https://arduinostarterco.com/learn/${params.tutorialSlug}/${params.stepSlug}`;
   return {
-    title: `${result.step.title} — ${result.tutorial.title} — Arduino Starter Co`,
-    description: result.step.description,
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "article",
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 

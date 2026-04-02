@@ -5,6 +5,16 @@ export const metadata: Metadata = {
   title: "About — Arduino Starter Co",
   description:
     "We built Arduino Starter Co because most beginner kits assume knowledge beginners don't have. Ours doesn't.",
+  alternates: {
+    canonical: "https://arduinostarterco.com/about",
+  },
+  openGraph: {
+    title: "About — Arduino Starter Co",
+    description:
+      "We built Arduino Starter Co because most beginner kits assume knowledge beginners don't have. Ours doesn't.",
+    url: "https://arduinostarterco.com/about",
+    type: "website",
+  },
 };
 
 const navLinks = [

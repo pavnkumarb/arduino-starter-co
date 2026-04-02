@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://arduinostarterco.com/og/learn.jpg",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Arduino Tutorial for Beginners",

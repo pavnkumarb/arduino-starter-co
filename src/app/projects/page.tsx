@@ -16,6 +16,14 @@ export const metadata: Metadata = {
       "Browse all 5 free Arduino projects. Filter by difficulty and find the right one for your skill level.",
     url: "https://arduinostarterco.com/projects",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Arduino Starter Co — 5 Free Beginner Projects",
+      },
+    ],
   },
 };
 
