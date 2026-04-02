@@ -156,23 +156,30 @@ export default function HomePage() {
             by step.
           </p>
 
+          {/* Two-path CTA: Learn vs Buy */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#waitlist"
+              href="/learn/project-1/1-whats-in-the-box"
               className="inline-flex items-center justify-center gap-2 font-body font-semibold text-label bg-builder-orange-aa text-white px-6 py-3 rounded-md min-h-[44px] hover:bg-[#B04516] active:bg-[#993C13] transition-colors duration-sm ease-brand focus-visible:outline-none focus-visible:shadow-focus"
             >
-              Join the Waitlist
+              Start Here — Project 1
             </a>
             <a
-              href="#how-it-works"
+              href="#waitlist"
               className="inline-flex items-center justify-center gap-2 font-body font-semibold text-label bg-white/15 text-white px-6 py-3 rounded-md min-h-[44px] border border-white/40 hover:bg-white/25 transition-colors duration-sm ease-brand focus-visible:outline-none focus-visible:shadow-focus"
             >
-              See how it works
+              Get the Kit — $59
             </a>
           </div>
 
+          {/* Two-path helper text */}
+          <p className="mt-6 font-body text-body-sm text-white/70">
+            <span className="font-semibold text-white/90">Want to learn?</span> Start with Project 1 — free, no sign-up. &nbsp;
+            <span className="font-semibold text-white/90">Ready to build?</span> Get the full kit.
+          </p>
+
           {/* Social proof micro-stat */}
-          <p className="mt-10 font-body text-body-sm text-white/70">
+          <p className="mt-4 font-body text-body-sm text-white/70">
             Trusted by early testers — waitlist open now
           </p>
         </div>
@@ -523,6 +530,7 @@ export default function HomePage() {
           <nav aria-label="Footer navigation">
             <ul className="flex flex-wrap justify-center gap-6">
               {[
+                { label: "Start Here", href: "/learn/project-1/1-whats-in-the-box" },
                 { label: "Kit", href: "#kit" },
                 { label: "Projects", href: "#projects" },
                 { label: "FAQ", href: "#support" },
