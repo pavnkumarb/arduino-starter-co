@@ -15,6 +15,7 @@ const defaultLinks: NavLink[] = [
   { label: "Kit", href: "#kit" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Projects", href: "#projects" },
+  { label: "Tutorials", href: "/learn" },
   { label: "Support", href: "#support" },
 ];
 
