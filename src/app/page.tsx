@@ -537,6 +537,14 @@ export default function HomePage() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/do-not-sell"
+                  className="hover:text-white transition-colors duration-sm"
+                >
+                  Do Not Sell My Personal Information
+                </a>
+              </li>
             </ul>
           </nav>
 

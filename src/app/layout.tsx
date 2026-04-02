@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "@/styles/globals.css";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -36,7 +37,10 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="font-body bg-cloud text-ink antialiased">{children}</body>
+      <body className="font-body bg-cloud text-ink antialiased">
+        {children}
+        <CookieConsentBanner />
+      </body>
     </html>
   );
 }
