@@ -16,10 +16,16 @@ export interface TutorialStep {
   troubleshooting?: TroubleshootingItem[];
 }
 
+export interface ComponentLabel {
+  component: string;
+  note: string;
+}
+
 export interface WiringDiagram {
   altText: string;
   connections: WiringConnection[];
   imagePlaceholder: string;
+  componentLabels?: ComponentLabel[];
 }
 
 export interface WiringConnection {
@@ -131,6 +137,11 @@ export const TUTORIALS: Tutorial[] = [
               color: "black",
               note: "Black = ground, always",
             },
+          ],
+          componentLabels: [
+            { component: "LED", note: "long leg (anode) → resistor; short leg (cathode) → GND" },
+            { component: "220Ω resistor", note: "between pin 13 and the LED anode — color bands: red-red-brown" },
+            { component: "Arduino Pin 13", note: "digital output — drives the LED HIGH/LOW to blink" },
           ],
         },
         videoClip: {
@@ -285,6 +296,10 @@ void loop() {
               color: "orange",
               note: "This is the signal wire — it carries the reading",
             },
+          ],
+          componentLabels: [
+            { component: "Potentiometer (10kΩ)", note: "middle pin (wiper) → A0; outer pins → 5V and GND" },
+            { component: "Arduino A0", note: "analog input — reads 0–1023 as you turn the knob" },
           ],
         },
         tips: [
@@ -504,6 +519,12 @@ void loop() {
               color: "black",
               note: "Pull-down to ground",
             },
+          ],
+          componentLabels: [
+            { component: "LED", note: "long leg (anode) → 220Ω resistor → pin 13; short leg → GND" },
+            { component: "220Ω resistor", note: "current limiter between pin 13 and LED anode" },
+            { component: "Push button", note: "one leg → 5V; other leg → pin 7 and 10kΩ pull-down" },
+            { component: "10kΩ pull-down resistor", note: "from pin 7 row to GND — keeps pin 7 LOW when button is released" },
           ],
         },
         videoClip: {
@@ -777,6 +798,11 @@ void loop() {
               note: "Black = ground",
             },
           ],
+          componentLabels: [
+            { component: "LED", note: "long leg (anode) → 220Ω resistor; short leg (cathode) → GND" },
+            { component: "220Ω resistor", note: "current limiter between pin 9 (~) and LED anode" },
+            { component: "Arduino Pin 9 (~)", note: "PWM-capable pin — analogWrite() controls brightness 0–255" },
+          ],
         },
         videoClip: {
           title: "Wire the LED brightness circuit to pin 9",
@@ -900,6 +926,11 @@ void loop() {
               color: "orange",
               note: "Signal wire",
             },
+          ],
+          componentLabels: [
+            { component: "Potentiometer (10kΩ)", note: "middle pin → A0; outer pins → 5V and GND" },
+            { component: "LED + 220Ω resistor", note: "unchanged from Step 2 — still wired to pin 9 (~)" },
+            { component: "Arduino A0", note: "analog read 0–1023; mapped to 0–255 for analogWrite on pin 9" },
           ],
         },
         tips: [
@@ -1111,6 +1142,11 @@ void loop() {
               note: "Signal wire — controls the angle",
             },
           ],
+          componentLabels: [
+            { component: "Servo motor (SG90)", note: "red → 5V rail; brown → GND rail; orange (signal) → pin 9" },
+            { component: "Arduino Pin 9 (~)", note: "PWM signal — Servo.write() angle 0°–180°" },
+            { component: "Breadboard power rails", note: "+ rail to 5V, − rail to GND — distributes power cleanly" },
+          ],
         },
         videoClip: {
           title: "Wire a servo motor to an Arduino step by step",
@@ -1241,6 +1277,11 @@ void loop() {
               color: "orange",
               note: "Analog signal — 0 to 1023",
             },
+          ],
+          componentLabels: [
+            { component: "Potentiometer (10kΩ)", note: "middle pin → A0; outer pins → 5V and GND rails" },
+            { component: "Servo motor (SG90)", note: "unchanged from Step 2 — red/brown/orange to rails and pin 9" },
+            { component: "Arduino A0", note: "reads 0–1023; mapped to 0°–180° for servo angle" },
           ],
         },
         codeSnippet: {
@@ -1418,6 +1459,11 @@ void loop() {
               color: "green",
               note: "SCL is the clock line",
             },
+          ],
+          componentLabels: [
+            { component: "LCD 16×2 + I2C backpack", note: "VCC → 5V; GND → GND; SDA → A4; SCL → A5" },
+            { component: "I2C SDA (A4)", note: "data line — carries display content to the LCD" },
+            { component: "I2C SCL (A5)", note: "clock line — synchronises data transfer timing" },
           ],
         },
         codeSnippet: {
@@ -1599,6 +1645,11 @@ void loop() {
               color: "orange",
               note: "Analog signal",
             },
+          ],
+          componentLabels: [
+            { component: "Potentiometer (10kΩ)", note: "middle pin → A0; outer pins → 5V and GND" },
+            { component: "LCD 16×2 + I2C backpack", note: "unchanged from Step 2 — VCC/GND/SDA/SCL still connected" },
+            { component: "Arduino A0", note: "reads 0–1023; displayed as raw value and percentage on LCD" },
           ],
         },
         codeSnippet: {
