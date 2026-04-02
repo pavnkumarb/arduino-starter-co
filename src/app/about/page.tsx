@@ -14,6 +14,20 @@ export const metadata: Metadata = {
       "We built Arduino Starter Co because most beginner kits assume knowledge beginners don't have. Ours doesn't.",
     url: "https://arduinostarterco.com/about",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "About — Arduino Starter Co",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About — Arduino Starter Co",
+    description:
+      "We built Arduino Starter Co because most beginner kits assume knowledge beginners don't have. Ours doesn't.",
   },
 };
 

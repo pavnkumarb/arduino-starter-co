@@ -32,6 +32,14 @@ export const metadata: Metadata = {
     url: "https://arduinostarterco.com",
     siteName: "Arduino Starter Co",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Arduino Starter Co — Build Your First Circuit",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

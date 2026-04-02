@@ -25,6 +25,12 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Arduino Projects — 5 Free Beginner Tutorials",
+    description:
+      "Browse all 5 free Arduino projects. Filter by difficulty and find the right one for your skill level.",
+  },
 };
 
 const NAV_LINKS = [
